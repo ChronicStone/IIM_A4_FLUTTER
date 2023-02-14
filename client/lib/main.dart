@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/pages/login.dart';
 import 'package:flutter_project/pages/register.dart';
-import 'package:flutter_project/utils/custom_page_transition.dart';
+import 'package:flutter_project/routing/custom_page_transition.dart';
 
 void main() {
   runApp(MaterialApp(

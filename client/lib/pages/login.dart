@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/utils/validation.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -24,23 +25,36 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  TextField(
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     onChanged: (value) => _email = value,
                     decoration: const InputDecoration(
-                        labelText: 'Email', border: OutlineInputBorder()),
+                        labelText: 'Adresse email',
+                        border: OutlineInputBorder()),
+                    validator: (value) {
+                      return validateEmail(value!);
+                    },
                   ),
                   const SizedBox(height: 20),
-                  TextField(
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                       onChanged: (value) => _password = value,
                       decoration: const InputDecoration(
-                          labelText: 'Password', border: OutlineInputBorder()),
-                      obscureText: true),
+                          labelText: 'Mot de passe',
+                          border: OutlineInputBorder()),
+                      obscureText: true,
+                      validator: (value) {
+                        if (value?.isEmpty ?? true) {
+                          return 'Le champ mot de passe est requis';
+                        }
+                        return null;
+                      }),
                   const SizedBox(height: 20),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO: Add button action
+                        if (_formKey.currentState!.validate()) {}
                       },
                       child: const SizedBox(
                         height: 40.0, // Set the height here
