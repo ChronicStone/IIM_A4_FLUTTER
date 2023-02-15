@@ -14,9 +14,9 @@
 import 'package:auto_route/auto_route.dart' as _i4;
 import 'package:flutter/material.dart' as _i5;
 
+import '../pages/home/home.dart' as _i1;
 import '../pages/login.dart' as _i2;
 import '../pages/register.dart' as _i3;
-import '../pages/task_lists.dart' as _i1;
 import 'guards.dart' as _i6;
 
 class RootRouter extends _i4.RootStackRouter {
@@ -32,10 +32,10 @@ class RootRouter extends _i4.RootStackRouter {
 
   @override
   final Map<String, _i4.PageFactory> pagesMap = {
-    TasksListRoute.name: (routeData) {
+    HomeRoute.name: (routeData) {
       return _i4.MaterialPageX<String>(
         routeData: routeData,
-        child: _i1.TasksListPage(),
+        child: _i1.HomePage(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -55,7 +55,7 @@ class RootRouter extends _i4.RootStackRouter {
   @override
   List<_i4.RouteConfig> get routes => [
         _i4.RouteConfig(
-          TasksListRoute.name,
+          HomeRoute.name,
           path: '/',
           guards: [authGuard],
         ),
@@ -79,15 +79,15 @@ class RootRouter extends _i4.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.TasksListPage]
-class TasksListRoute extends _i4.PageRouteInfo<void> {
-  const TasksListRoute()
+/// [_i1.HomePage]
+class HomeRoute extends _i4.PageRouteInfo<void> {
+  const HomeRoute()
       : super(
-          TasksListRoute.name,
+          HomeRoute.name,
           path: '/',
         );
 
-  static const String name = 'TasksListRoute';
+  static const String name = 'HomeRoute';
 }
 
 /// generated route for

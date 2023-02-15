@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_project/pages/home/home.dart';
 import 'package:flutter_project/pages/login.dart';
 import 'package:flutter_project/pages/register.dart';
 import 'package:flutter_project/pages/task_lists.dart';
@@ -10,7 +11,7 @@ import 'package:flutter_project/routing/guards.dart';
     // app stack
     AutoRoute<String>(
       path: '/',
-      page: TasksListPage,
+      page: HomePage,
       guards: [AuthGuard],
     ),
     AutoRoute(page: LoginPage, path: '/login', guards: [NoAuthGuard]),
