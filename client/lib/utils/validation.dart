@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'package:flutter_project/config/env.dart';
+import 'package:http/http.dart' as http;
+
 String? validatePassword(String value) {
   if (value.isEmpty) {
     return 'Veuillez saisir un mot de passe';
@@ -29,3 +33,25 @@ String? validateRequiredField(String fieldName, String value) {
 
   return null;
 }
+
+Future<String?> verifyEmailAvailability(String? email) async {
+    String? validPattern = validateEmail(email!);
+
+    if(validPattern!.isEmpty == false) return validPattern;
+
+    final response = await http.post(
+      Uri.parse('$API_BASE_URL/api/auth/check-email-available'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': email,
+      })
+    );
+
+    if(response.statusCode == 200) {
+      return null;
+    } else {
+      return 'Adresse email déjà utilisée';
+    }
+  }
