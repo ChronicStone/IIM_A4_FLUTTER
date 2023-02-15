@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project/routing/router.gr.dart';
 import 'package:flutter_project/utils/validation.dart';
 
 class LoginPage extends StatefulWidget {
@@ -37,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       onChanged: (value) => _password = value,
                       decoration: const InputDecoration(
                           labelText: 'Mot de passe',
@@ -80,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                         textStyle: const TextStyle(fontSize: 14),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/register');
+                        AutoRouter.of(context).push(RegisterRoute());
                       },
                       child: const Text('Pas encore inscrit ?'),
                     ),

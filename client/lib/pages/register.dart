@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/utils/validation.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -15,6 +17,10 @@ class _RegisterPageState extends State<RegisterPage> {
   String _lastName = '';
   String _password = '';
   String _confirmPassword = '';
+
+  void registerUser() {
+    Fluttertoast.showToast(msg: 'Hello :)', gravity: ToastGravity.TOP);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         children: [
                           Expanded(
                             child: TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
                               onChanged: (value) => _firstName = value,
                               validator: (value) {
                                 return validateRequiredField('prénom', value!);
@@ -45,11 +52,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                   border: OutlineInputBorder()),
                             ),
                           ),
-                          const SizedBox(
-                              width: 10),
+                          const SizedBox(width: 10),
                           Expanded(
                             child: TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
                               onChanged: (value) => _lastName = value,
                               validator: (value) {
                                 return validateRequiredField('prénom', value!);
@@ -111,12 +118,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
                           if (value == _password) {
                             return null;
-                          }
-
-                          else {
+                          } else {
                             return 'Le mot de passe et la confirmation de correspondent pas';
                           }
-
                         },
                         obscureText: !_passwordVisibility,
                         decoration: InputDecoration(
@@ -142,7 +146,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) {}
+                            if (_formKey.currentState!.validate()) {
+                              registerUser();
+                            }
                           },
                           child: const SizedBox(
                             height: 40.0,
@@ -169,7 +175,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             textStyle: const TextStyle(fontSize: 14),
                           ),
                           onPressed: () {
-                            Navigator.of(context).pop();
+                            AutoRouter.of(context).pop();
                           },
                           child: const Text('Déjà inscrit ? Connectez vous'),
                         ),
