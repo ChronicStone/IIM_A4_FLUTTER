@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project/routing/guards.dart';
 import 'package:flutter_project/routing/router.gr.dart';
 import 'package:flutter_project/services/auth.service.dart';
-import 'package:flutter_project/theme/appTheme.dart';
+import 'package:flutter_project/config/theme.dart';
 import 'config/service_locator.dart';
 
 void main() {
@@ -25,11 +25,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: 'Flutter TaskManager',
       theme: appTheme,
       routerDelegate: _rootRouter.delegate(
         navigatorObservers: () => [AutoRouteObserver()],
       ),
-      // routeInformationProvider: _rootRouter.routeInfoProvider(),
+      routeInformationProvider: _rootRouter.routeInfoProvider(),
       routeInformationParser: _rootRouter.defaultRouteParser(),
       builder: (_, router) {
         return router!;
@@ -37,19 +38,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter TaskManager',
-//       initialRoute: '/',
-//       routes: appRoutes,
-//       navigatorObservers: [routeObserver],
-//       theme: appTheme,
-//     );
-//   }
-// }
