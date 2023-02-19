@@ -33,6 +33,7 @@ This is a standard flutter app, run the dev server using `flutter run`
 - Profile : Visualise personnal informations
 - Tasks management :
   - Visualise todo lists by tabs
+  - Refresh tasks by dragging list downward
   - Sort & filter dynamically tasks
   - Create tasks
   - Add updates to tasks, visualise updates
