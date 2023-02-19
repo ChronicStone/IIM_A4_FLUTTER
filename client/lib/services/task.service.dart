@@ -72,7 +72,7 @@ class TaskService {
 
       if (response.statusCode == 201) {
         final Task newTask = Task.fromJson(jsonDecode(response.body));
-        tasks.add(newTask);
+        _tasks.add(newTask);
         return true;
       }
 
