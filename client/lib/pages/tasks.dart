@@ -195,7 +195,8 @@ class _TasksPageState extends State<TasksPage>
     final RefreshController refreshController =
         RefreshController(initialRefresh: false);
     return SmartRefresher(
-      enablePullUp: true,
+      enablePullUp: false,
+      enablePullDown: true,
       controller: refreshController,
       onRefresh: () {
         onRefresh(refreshController);
