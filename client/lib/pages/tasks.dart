@@ -65,9 +65,6 @@ class _TasksPageState extends State<TasksPage>
       {required String? searchQuery,
       required String? sortKey,
       required String? sortDir}) {
-    debugPrint('QUERY : $searchQuery');
-    debugPrint('KEY : $sortKey');
-    debugPrint('DIR : $sortDir');
     setState(() {
       taskService.searchQuery = searchQuery;
       taskService.sortDir = sortDir;

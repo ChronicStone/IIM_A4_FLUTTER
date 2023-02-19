@@ -25,7 +25,6 @@ class _FilterTasksModalState extends State<FilterTasksModal> {
 
   @override
   void initState() {
-    debugPrint('QUERYINPUT: ${widget.searchQuery}');
     _searchQuery = widget.searchQuery;
     _sortDir = widget.sortDir;
     _sortKey = widget.sortKey;

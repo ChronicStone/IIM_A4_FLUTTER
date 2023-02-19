@@ -62,7 +62,6 @@ class TaskService {
   Future<bool> createTask(
       {required String title, String? description, List<String>? tags}) async {
     try {
-      debugPrint('title: $title, description: $description');
       final response = await http.post(
         Uri.parse('$API_BASE_URL/tasks/'),
         headers: _getAuthHeaders(),

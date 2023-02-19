@@ -39,9 +39,6 @@ class _TaskProfileState extends State<TaskProfilePage> {
     final loadingOverlay = LoadingOverlay.of(context);
     var showToast = ToastBuilder(context);
 
-    debugPrint('progress: $progress');
-    debugPrint('content: $content');
-
     loadingOverlay.show();
     bool result = await taskService.createTaskUpdate(
         taskId: widget.taskId ?? '', content: content, progress: progress);
