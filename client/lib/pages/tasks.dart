@@ -58,7 +58,6 @@ class _TasksPageState extends State<TasksPage>
           content: 'The task have been created',
           type: ToastType.success);
     }
-    await Future.delayed(Duration(seconds: 1));
     setState(() {});
   }
 
