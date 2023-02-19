@@ -38,4 +38,15 @@ class User {
       'email': email,
     };
   }
+
+  toJSONEncodable() {
+    Map<String, dynamic> m = new Map();
+
+    m['id'] = id;
+    m['firstName'] = firstName;
+    m['lastName'] = lastName;
+    m['email'] = email;
+
+    return m;
+  }
 }
